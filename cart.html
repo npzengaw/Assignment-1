@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Shopping Cart - Ngee Ann Polytechnic Merchandise</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
             <img src="logo.jpeg" alt="Ngee Ann Polytechnic Logo" class="logo">
             <nav>
                 <ul>
-                    <li><a href="index.html">Catalog</a></li>
-                    <li><a href="cart.html" class="active">Cart</a></li>
+                    <li><a href="index.html">Catalog</a></li> <!-- Corrected link to main catalog -->
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Shopping Cart Section -->
     <section id="cart" class="section">
         <div class="container">
-            <h2>Your Shopping Cart</h2>
+            <h2>Your Cart</h2>
             <div id="cart-items">
                 <!-- Cart items will be dynamically added here -->
             </div>
-            <p id="cart-total">Total: $0</p>
-            <button id="checkout-btn" disabled>Checkout</button>
+            <div id="cart-total">
+                <p>Total: $<span id="total-price">0</span></p>
+            </div>
+            <button id="checkout-btn">Proceed to Checkout</button>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Ngee Ann Polytechnic. Follow us on 
@@ -40,7 +46,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="cart.js"></script>
 </body>
 </html>

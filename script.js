@@ -1,17 +1,17 @@
-const cart = JSON.parse(localStorage.getItem('cart')) || [];
+// Add Event Listeners for "View Product" buttons
+const viewButtons = document.querySelectorAll('.view-product-btn');
+viewButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        window.location.href = 'product.html'; // Directs to product detail page
+    });
+});
 
-function addToCart(productId) {
-    const products = {
-        'official-shirt': { name: 'Official Shirt', price: 20 },
-        'event-shirt': { name: 'Event Shirt', price: 25 }
-    };
-
-    const product = products[productId];
-    if (product) {
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${product.name} has been added to your cart.`);
-    } else {
-        alert('Product not found!');
-    }
-}
+// Add Event Listeners for "Add to Cart" buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const productId = parseInt(button.getAttribute('data-product-id'));
+        addToCart(productId);
+        alert('Product added to cart!');
+    });
+});
