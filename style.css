@@ -4,69 +4,69 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-}
-
-h2 {
-    text-align: center;
-    margin-top: 30px;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer stays at the bottom */
 }
 
 /* Container for overall layout */
 .container {
-    width: 100%;
+    width: 90%; /* Adjusted for better responsiveness */
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Allow content area to grow and push footer down */
 }
 
-/* Header Styling */
+/* General Header Styling */
 header {
     background-color: black;
     color: white;
-    padding: 30px 0; /* More padding for larger header */
+    padding: 30px 0;
     display: flex;
-    flex-direction: column; /* Stack logo and nav vertically */
-    align-items: center; /* Center all content horizontally */
-    justify-content: center; /* Center vertically */
-    text-align: center; /* Ensure content is aligned properly */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%; /* Ensure header spans full width */
 }
 
-/* Make the logo bigger */
 header .logo {
-    height: 150px; /* Increase the size of the logo */
-    max-width: 300px; /* Ensure it doesn’t become too wide */
-    margin-bottom: 20px; /* Space between logo and nav */
+    height: 150px;
+    max-width: 300px;
+    margin-bottom: 20px;
+    align-self: center; /* Ensures the logo is always centered */
 }
 
-/* Navigation styling */
 header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 30px; /* Increased space between menu items */
-    justify-content: center; /* Center nav items horizontally */
-}
-
-header nav ul li {
-    display: inline-block;
+    gap: 30px;
+    justify-content: center;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px; /* Larger font size for navigation */
+    font-size: 20px;
     padding: 10px 20px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease;
 }
 
 header nav ul li a:hover {
-    background-color: #555; /* Change background color on hover */
-    border-radius: 5px; /* Rounded corners on hover */
+    background-color: #555;
+    border-radius: 5px;
 }
 
-/* Merchandise Catalog Styling */
+h2 {
+    text-align: center;
+}
+
+
+/* General Product Styling */
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -104,26 +104,105 @@ header nav ul li a:hover {
     color: #555;
 }
 
-/* Responsive Styling for small devices */
-@media (max-width: 768px) {
-    .products {
-        justify-content: space-around;
-    }
-
-    .product {
-        width: 45%;
-    }
+/* Specific Product Detail Page */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }
 
-@media (max-width: 480px) {
-    header nav ul {
-        flex-direction: column;
-        gap: 10px; /* Reduce space between items on small screens */
-    }
+.product-detail {
+    display: flex;
+    gap: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    .product {
-        width: 100%;
-    }
+.product-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product-options {
+    margin-bottom: 20px;
+}
+
+.size-selection, .color-selection {
+    margin-bottom: 20px;
+}
+
+.size-buttons, .color-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.size-btn, .color-btn {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size-btn {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.size-btn.selected {
+    background-color: #333;
+    color: white;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.color-btn.selected {
+    border: 2px solid #333;
+    transform: scale(1.1);
+}
+
+#add-to-cart-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-to-cart-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.selection-message {
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
 }
 
 /* Promotions Section */
@@ -190,6 +269,8 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    position: relative;
+    width: 100%;
 }
 
 footer a {
@@ -199,4 +280,36 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Ensures footer is at the bottom of the page */
+footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .products {
+        justify-content: space-around;
+    }
+
+    .product {
+        width: 45%;
+    }
+
+    .product-detail {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product {
+        width: 100%;
+    }
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.jpeg" alt="Ngee Ann Polytechnic Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Catalog</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="product-detail" class="section">
+        <div class="container">
+            <a href="index.html" class="back-btn">Back to Catalog</a>
+            <div class="product-detail">
+                <div class="product-image">
+                    <img id="product-image" src="offical.png" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h2 id="product-name">Official Shirt</h2>
+                    <p id="product-description">This is a high-quality official shirt from Ngee Ann Polytechnic, available in various sizes.</p>
+                    <p id="product-price">Price: $20</p>
+                    <div class="product-options">
+                        <h4>Size:</h4>
+                        <div class="size-selection">
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+                    <button id="add-to-cart-btn" onclick="addToCart('official-shirt')">Add to Cart</button>
+                    <p class="selection-message">Please select a size.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ngee Ann Polytechnic. Follow us on 
+                <a href="#">Facebook</a>, 
+                <a href="#">Instagram</a>, and 
+                <a href="#">Twitter</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="product.js"></script>
+</body>
+</html>
