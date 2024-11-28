@@ -91,8 +91,9 @@ h2 {
 
 .product img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto; /* Ensures the image keeps its aspect ratio */
+    max-height: 300px; /* Maximum height for product images */
+    object-fit: cover; /* Crop the image if necessary */
     border-radius: 8px;
 }
 
@@ -322,3 +323,12 @@ footer {
         flex-direction: column;
     }
 }
+/* Cart Page Product Image Styling */
+.cart-product img {
+    width: auto;       /* Set width to auto to keep the aspect ratio */
+    height: 100px;     /* Set the height to 100px */
+    max-width: 100%;   /* Ensure the image doesn't exceed the container's width */
+    object-fit: contain; /* Ensure the image fits within the set dimensions */
+    border-radius: 8px;
+}
+

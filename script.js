@@ -1,32 +1,34 @@
 // script.js
 
-document.addEventListener('DOMContentLoaded', () => {
-    const products = {
-        official: {
-            image: 'offical.png',
-            name: 'Official Shirt',
-            price: 20,
-            sizes: ['S', 'M', 'L', 'XL'],
-        },
-        event: {
-            image: 'shirt2.png',
-            name: 'Event Shirt',
-            price: 25,
-            sizes: ['S', 'M', 'L', 'XL'],
-        }
-    };
-
-    const viewButtons = document.querySelectorAll('.view-product-btn');
-
-    viewButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.getAttribute('data-id');
-            const product = products[productId];
-
-            if (product) {
-                localStorage.setItem('selectedProduct', JSON.stringify(product));
-                window.location.href = 'product.html';
-            }
-        });
+// Listen for clicks on the "View Product" buttons
+const buttons = document.querySelectorAll('.view-product-btn');
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        const product = getProductById(productId);
+        localStorage.setItem('selectedProduct', JSON.stringify(product)); // Save selected product to localStorage
+        window.location.href = 'product.html'; // Navigate to product details page
     });
 });
+
+// Function to get product details by ID
+function getProductById(productId) {
+    const products = [
+        {
+            id: 'official',
+            name: 'Official Shirt',
+            price: 20,
+            image: 'offical.png',
+            description: 'A high-quality official shirt from Ngee Ann Polytechnic.'
+        },
+        {
+            id: 'event',
+            name: 'Event Shirt',
+            price: 25,
+            image: 'shirt2.png',
+            description: 'Exclusive Event Shirt for Ngee Ann Polytechnic events.'
+        }
+    ];
+    
+    return products.find(product => product.id === productId);
+}

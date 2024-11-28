@@ -1,23 +1,25 @@
 // product.js
 
-// Retrieve product from localStorage
+// Load product from localStorage
 const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
+// Update product details on the page
 if (product) {
     document.getElementById('product-image').src = product.image;
     document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-description').textContent = `This is a high-quality ${product.name.toLowerCase()} from Ngee Ann Polytechnic.`;
+    document.getElementById('product-description').textContent = product.description;
     document.getElementById('product-price').textContent = `Price: $${product.price}`;
-
-    // Set up size buttons for selection
-    const sizeButtons = document.querySelectorAll('.size-btn');
-    sizeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            sizeButtons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-        });
-    });
-} else {
-    alert("Product not found.");
 }
 
+// Add to Cart functionality
+document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+});
