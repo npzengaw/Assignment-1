@@ -10,8 +10,17 @@ sizeButtons.forEach(button => {
         button.classList.add('selected');
         selectedSize = button.textContent;
         selectionMessage.textContent = `Selected size: ${selectedSize}`;
+        selectionMessage.style.color = '';
+        toggleAddToCartButton();
     });
 });
+
+function toggleAddToCartButton() {
+    addToCartBtn.disabled = !selectedSize;
+}
+
+// Initially disable button
+toggleAddToCartButton();
 
 function addToCart(productId) {
     if (!selectedSize) {
@@ -26,10 +35,26 @@ function addToCart(productId) {
 
     const product = products[productId];
     if (product) {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${product.name} (${product.size}) has been added to your cart.`);
+        try {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingProductIndex = cart.findIndex(
+                item => item.name === product.name && item.size === selectedSize
+            );
+
+            if (existingProductIndex !== -1) {
+                selectionMessage.textContent = 'This product is already in your cart.';
+                selectionMessage.style.color = 'orange';
+                return;
+            }
+
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            selectionMessage.textContent = `${product.name} (${product.size}) was added to your cart!`;
+            selectionMessage.style.color = 'green';
+        } catch (error) {
+            console.error('Error accessing localStorage:', error);
+            alert('There was an error adding the product to your cart.');
+        }
     } else {
         alert('Product not found!');
     }
