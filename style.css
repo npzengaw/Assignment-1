@@ -69,11 +69,12 @@ h2 {
 .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px; /* Increase this gap value */
     justify-content: center;
     margin-top: 20px;
 }
 
+/* Adjust margin for individual products if needed */
 .product {
     width: 200px;
     text-align: center;
@@ -81,7 +82,7 @@ h2 {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px; /* Add margin at the bottom to create space between rows */
 }
 
 .product:hover {
