@@ -81,6 +81,11 @@ h2 {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: translateY(-10px);
 }
 
 .product img {
