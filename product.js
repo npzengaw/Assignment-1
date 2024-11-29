@@ -1,13 +1,15 @@
+
 // Load product from localStorage
 const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
-// Update product details on the page
+// Check if product exists and update page elements
 if (product) {
-    document.getElementById('product-image').src = product.image;
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-price').textContent = `Price: $${product.price}`;
+    document.getElementById('product-image').src = product.image;  // Set image src
+    document.getElementById('product-name').textContent = product.name;  // Set name
+    document.getElementById('product-description').textContent = product.description;  // Set description
+    document.getElementById('product-price').textContent = `Price: $${product.price}`;  // Set price
 }
+
 
 // Size selection functionality
 let selectedSize = null;

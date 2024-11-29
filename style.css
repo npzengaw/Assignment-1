@@ -129,6 +129,14 @@ h2 {
     margin-top: auto; /* Pushes the content to the bottom */
 }
 
+/* Option for fixed size for all images */
+.product-image img {
+    width: 300px; /* Set a fixed width */
+    height: 400px; /* Set a fixed height */
+    object-fit: cover; /* Fill the area and crop the image if needed */
+}
+
+
 .price {
     font-size: 24px;
     font-weight: bold;
@@ -244,6 +252,29 @@ textarea {
     border: 1px solid #ccc;
     resize: vertical;
 }
+
+/* Add margin to the Back to Catalog button */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Adds space above the button */
+}
+
+.back-btn:hover {
+    background-color: #333; /* Darker black when hovering */
+}
+
+/* Add padding to the parent container of product details */
+.product-detail {
+    padding-top: 30px; /* Adds space above the product details container */
+}
+
 
 button {
     padding: 10px 20px;
