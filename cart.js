@@ -57,5 +57,12 @@ updateCartTotal();
 // Add an event listener to the checkout button
 const checkoutButton = document.getElementById('checkout-btn');
 checkoutButton.addEventListener('click', () => {
-    alert('Proceeding to checkout!');
+    if (confirm('Proceed to checkout and clear your cart?')) {
+        alert('Proceeding to checkout!'); // Keep the existing alert
+        localStorage.removeItem('cart'); // Clear the cart from localStorage
+        while (cartContainer.firstChild) {
+            cartContainer.removeChild(cartContainer.firstChild); // Clear cart items visually
+        }
+        cartTotal.textContent = 'Total: $0.00'; // Reset the total price
+    }
 });
