@@ -1,8 +1,5 @@
-// Array of cart items with clothing products
-const cartItems = [
-    { name: 'Official Shirt', imageUrl: 'official.png', price: 25, quantity: 1 },
-    { name: 'Event Shirt', imageUrl: 'shirt2.png', price: 20, quantity: 1 }
-];
+// Load cart items from localStorage (to keep data consistent)
+const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartContainer = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
@@ -16,14 +13,16 @@ function updateCartTotal() {
     cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 }
 
+// Render cart items
 cartItems.forEach(item => {
     const cartProduct = document.createElement('div');
     cartProduct.classList.add('cart-product');
 
-    // Create product image
-    const img = document.createElement('img');
-    img.src = item.imageUrl;
-    img.alt = item.name;
+    // Remove the image section
+    // const img = document.createElement('img');
+    // img.src = item.imageUrl;
+    // img.alt = item.name;
+    // cartProduct.appendChild(img);  // No need to append the image
 
     // Create product info
     const productInfo = document.createElement('div');
@@ -35,14 +34,17 @@ cartItems.forEach(item => {
     const productQuantity = document.createElement('p');
     productQuantity.textContent = `Quantity: ${item.quantity}`;
     
+    const productSize = document.createElement('p');
+    productSize.textContent = `Size: ${item.size}`;
+    
     const productPrice = document.createElement('p');
     productPrice.textContent = `Price: $${item.price}`;
 
-    // Append product info and image to the product container
+    // Append product info to the product container
     productInfo.appendChild(productName);
+    productInfo.appendChild(productSize);  // Added size info here
     productInfo.appendChild(productQuantity);
     productInfo.appendChild(productPrice);
-    cartProduct.appendChild(img);
     cartProduct.appendChild(productInfo);
 
     // Add the cart product to the cart container
@@ -56,5 +58,4 @@ updateCartTotal();
 const checkoutButton = document.getElementById('checkout-btn');
 checkoutButton.addEventListener('click', () => {
     alert('Proceeding to checkout!');
-    // Here, you could redirect to a payment page or show a checkout form
 });

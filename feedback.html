@@ -1,36 +1,57 @@
+<!-- feedback.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="no-feedback-nav">
-    <!-- No feedback nav on this page -->
-    
+<body>
+
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="logo.jpeg" alt="Logo">
+        <div class="container">
+            <img src="logo.jpeg" alt="Ngee Ann Polytechnic Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Catalog</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <div class="container">
-        <!-- Your feedback page content goes here -->
-    </div>
+    <!-- Feedback Form Content -->
+    <section id="feedback" class="section">
+        <div class="container">
+            <h2>Give us your Feedback</h2>
+            <form id="feedback-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+
+                <button type="submit" id="submit-feedback" class="btn">Submit Feedback</button>
+            </form>
+
+            <p id="message"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Ngee Ann Polytechnic. Follow us on <a href="#">Facebook</a>, <a href="#">Instagram</a>, and <a href="#">Twitter</a>.</p>
+        <div class="container">
+            <p>&copy; 2024 Ngee Ann Polytechnic. Follow us on 
+                <a href="#">Instagram</a>
+            </p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="feedback.js"></script>
 </body>
 </html>
