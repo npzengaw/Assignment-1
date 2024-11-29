@@ -1,53 +1,60 @@
-// cart.js
+// Array of cart items with clothing products
+const cartItems = [
+    { name: 'Official Shirt', imageUrl: 'official.png', price: 25, quantity: 1 },
+    { name: 'Event Shirt', imageUrl: 'shirt2.png', price: 20, quantity: 1 }
+];
 
-// Function to load the cart and display it
-function loadCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartContainer = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
 
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalContainer = document.getElementById('cart-total');
-
-    // Clear current cart items
-    cartItemsContainer.innerHTML = '';
-    cartTotalContainer.innerHTML = '';
-
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-    } else {
-        let totalPrice = 0;
-        cart.forEach(item => {
-            cartItemsContainer.innerHTML += `
-                <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                    <div class="cart-item-info">
-                        <h3>${item.name}</h3>
-                        <p>Price: $${item.price}</p>
-                        <p>Quantity: ${item.quantity}</p>
-                    </div>
-                </div>
-            `;
-            totalPrice += item.price * item.quantity;
-        });
-
-        cartTotalContainer.innerHTML = `<h3>Total: $${totalPrice}</h3>`;
-    }
+// Function to calculate and display the total price
+function updateCartTotal() {
+    let total = 0;
+    cartItems.forEach(item => {
+        total += item.price * item.quantity;
+    });
+    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 }
 
-// Checkout function to clear the cart
-function checkout() {
-    // Clear the cart from localStorage
-    localStorage.removeItem('cart');
-    
-    // Reload the cart page to reflect the empty cart
-    loadCart();
-    
-    alert('Checkout successful! Your cart has been cleared.');
-}
+cartItems.forEach(item => {
+    const cartProduct = document.createElement('div');
+    cartProduct.classList.add('cart-product');
 
-// Event listener for Checkout button
-document.getElementById('checkout-btn').addEventListener('click', function() {
-    checkout();
+    // Create product image
+    const img = document.createElement('img');
+    img.src = item.imageUrl;
+    img.alt = item.name;
+
+    // Create product info
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+    
+    const productName = document.createElement('h3');
+    productName.textContent = item.name;
+    
+    const productQuantity = document.createElement('p');
+    productQuantity.textContent = `Quantity: ${item.quantity}`;
+    
+    const productPrice = document.createElement('p');
+    productPrice.textContent = `Price: $${item.price}`;
+
+    // Append product info and image to the product container
+    productInfo.appendChild(productName);
+    productInfo.appendChild(productQuantity);
+    productInfo.appendChild(productPrice);
+    cartProduct.appendChild(img);
+    cartProduct.appendChild(productInfo);
+
+    // Add the cart product to the cart container
+    cartContainer.appendChild(cartProduct);
 });
 
-// Load the cart items when the page loads
-loadCart();
+// Update the total price
+updateCartTotal();
+
+// Add an event listener to the checkout button
+const checkoutButton = document.getElementById('checkout-btn');
+checkoutButton.addEventListener('click', () => {
+    alert('Proceeding to checkout!');
+    // Here, you could redirect to a payment page or show a checkout form
+});

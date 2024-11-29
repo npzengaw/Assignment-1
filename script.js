@@ -18,7 +18,7 @@ function getProductById(productId) {
             id: 'official',
             name: 'Official Shirt',
             price: 20,
-            image: 'offical.png',
+            image: 'official.png',
             description: 'A high-quality official shirt from Ngee Ann Polytechnic.'
         },
         {
