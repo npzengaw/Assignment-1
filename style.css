@@ -75,6 +75,16 @@ h2 {
 }
 
 /* Adjust margin for individual products if needed */
+/* General Product Styling */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increase this gap value */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Adjust margin for individual products if needed */
 .product {
     width: 200px;
     text-align: center;
@@ -83,6 +93,11 @@ h2 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin-bottom: 20px; /* Add margin at the bottom to create space between rows */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align all content inside the product box */
+    justify-content: space-between; /* Ensure name, price, and buttons are spaced out */
+    height: 380px; /* Fixed height for consistency */
 }
 
 .product:hover {
@@ -91,8 +106,7 @@ h2 {
 
 .product img {
     width: 100%;
-    height: auto; /* Ensures the image keeps its aspect ratio */
-    max-height: 300px; /* Maximum height for product images */
+    height: 200px; /* Fixed height for all images */
     object-fit: cover; /* Crop the image if necessary */
     border-radius: 8px;
 }
@@ -110,33 +124,9 @@ h2 {
     color: #555;
 }
 
-/* Specific Product Detail Page */
-.back-btn {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.product-detail {
-    display: flex;
-    gap: 40px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-image img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
+/* Ensure that the buttons, name, and price are aligned */
 .product-info {
-    flex: 1;
+    margin-top: auto; /* Pushes the content to the bottom */
 }
 
 .price {
