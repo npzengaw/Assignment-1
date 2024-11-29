@@ -30,17 +30,17 @@ function getProductById(productId) {
         },
         {
             id: 'green',
-            name: '3 Fold (Ngee Ann, Ngee Ann, Ngee Ann)',
+            name: 'Green 3 Fold',
             price: 25,
             image: 'green.png',  // Adjust image path if needed
-            description: 'A unique 3-fold shirt with Ngee Ann Polytechnic branding.'
+            description: 'A green 3-fold shirt with Ngee Ann Polytechnic branding.'
         },
         {
             id: 'red',
-            name: 'Red Shirt',
+            name: 'Red 3 Fold',
             price: 25,
             image: 'red.png',  // Adjust image path if needed
-            description: 'A red shirt with the Ngee Ann Polytechnic logo.'
+            description: 'A green 3-fold shirt with Ngee Ann Polytechnic branding.'
         }
     ];
     

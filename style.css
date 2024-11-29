@@ -123,6 +123,14 @@ h2 {
     font-size: 14px;
     color: #555;
 }
+/* Style for the product name */
+.product-name {
+    font-size: 24px; /* Adjust the size as necessary */
+    font-weight: bold; /* Makes the text bold */
+    margin: 15px 0; /* Adds spacing above and below the product name */
+    text-align: left; /* Centers the name */
+}
+
 
 /* Ensure that the buttons, name, and price are aligned */
 .product-info {
