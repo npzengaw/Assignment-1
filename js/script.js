@@ -22,8 +22,8 @@ function getProductById(productId) {
             description: 'A high-quality official shirt from Ngee Ann Polytechnic.'
         },
         {
-            id: 'event',
-            name: 'Event Shirt',
+            id: 'UDF',
+            name: 'UDF Shirt',
             price: 25,
             image: 'images/shirt1.png',  // Ensure the image extension matches the actual file
             description: 'Exclusive Event Shirt for Ngee Ann Polytechnic events.'
