@@ -64,3 +64,5 @@ addToCartBtn.addEventListener('click', function() {
     // Provide user feedback
     selectionMessage.textContent = `${product.name} (${selectedSize}) added to cart`;
 });
+
+
